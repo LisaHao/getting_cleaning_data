@@ -4,4 +4,4 @@ The run_analysis.R file collects and cleans data collected from the acceleromete
 - Appropriately labels the data set with descriptive variable names.
 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The resulting independent tiny data set is found in tiny_data.txt.
+The resulting independent tiny data set is found in tidy_data.txt.
