@@ -1,5 +1,5 @@
 #run_analysis.R
-
+library(dplyr)
 #get information from original dataset
 dataset <- tempfile()
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", dataset)
@@ -46,6 +46,8 @@ labDataCols <- gsub("std", "StandardDeviation", labDataCols)
 colnames(labData) <- labDataCols
 
 #create second tidy data set with average of each variable for each activity and each subject
-labDataMeans <- labData %>% group_by(subject, activity) %>% summarize_each(list(mean))
+labDataMeans <- aggregate(. ~ subject + activity, data = labData, FUN = mean)
+                
 
 write.table(labDataMeans, "tidy_data.txt", quote=FALSE, row.names=FALSE)
+
